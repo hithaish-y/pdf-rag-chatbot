@@ -5,6 +5,19 @@ Transform your PDFs into an intelligent, conversational knowledge base powered b
 A production-ready Retrieval-Augmented Generation (RAG) system that enables natural language conversations with your PDF documents. Built with enterprise-grade technologies including LangChain, FAISS vector search, and high-speed LLM inference via Groq.
 
 ---
+## 🖥️ UI Overview
+
+### 🏠 Main Page
+![Main Page](screenshots/main-page.png)
+
+### 📄 PDF Upload
+![PDF Upload](screenshots/pdf-upload.png)
+
+### 💬 Chatbot Answer
+![Chatbot Answer](screenshots/chatbot-answer.png)
+
+### 📚 Sources
+![Sources](screenshots/sources.png)
 
 ## 📑 Table of Contents
 
