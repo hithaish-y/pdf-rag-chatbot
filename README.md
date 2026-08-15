@@ -396,10 +396,23 @@ Screenshots are not displayed
 
 Make sure these files exist in the repository:
 
-screenshots/main-page.png
-screenshots/pdf-upload.png
-screenshots/chatbot-answer.png
-screenshots/sources.png
+## 🖥️ UI Screenshots
+
+### 🏠 Main Page
+
+![Main Page](screenshots/main-page.png)
+
+### 📄 PDF Upload
+
+![PDF Upload](screenshots/pdf-upload.png)
+
+### 💬 Chatbot Answer
+
+![Chatbot Answer](screenshots/chatbot-answer.png)
+
+### 📚 Sources
+
+![Sources](screenshots/sources.png)
 
 The filenames and folder name must match the paths used in this README.
 
