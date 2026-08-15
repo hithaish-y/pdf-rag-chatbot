@@ -1,307 +1,438 @@
-# 🤖 Hithaish PDF RAG Chatbot
+🤖 Hithaish PDF RAG Chatbot
 
-Transform your PDFs into an intelligent, conversational knowledge base powered by cutting-edge AI.
+Transform your PDFs into an intelligent, conversational knowledge base
+powered by AI.
 
-A production-ready Retrieval-Augmented Generation (RAG) system that enables natural language conversations with your PDF documents. Built with enterprise-grade technologies including LangChain, FAISS vector search, and high-speed LLM inference via Groq.
+A Retrieval-Augmented Generation (RAG) system that enables
+natural-language conversations with PDF documents using LangChain, FAISS
+vector search, HuggingFace embeddings, Groq LLM inference, and
+Streamlit.
 
----
-## 🖥️ UI Overview
+📑 Table of Contents
 
-### 🏠 Main Page
-![Main Page](screenshots/main-page.png)
+Features
 
-### 📄 PDF Upload
-![PDF Upload](screenshots/pdf-upload.png)
+Live Demo
 
-### 💬 Chatbot Answer
-![Chatbot Answer](screenshots/chatbot-answer.png)
+Tech Stack
 
-### 📚 Sources
-![Sources](screenshots/sources.png)
+UI Overview
 
-## 📑 Table of Contents
+Quick Start
 
-- Features
-- Live Demo
-- Tech Stack
-- UI Overview
-- Quick Start
-- Installation
-- Configuration
-- Usage Guide
-- Architecture
-- Troubleshooting
-- Contributing
-- License
-- Contact
+Installation
 
----
+Configuration
 
-## ✨ Features
+Usage Guide
 
-### Core Capabilities
+Architecture
 
-📁 **Multi-PDF Upload** - Process single or multiple PDF documents simultaneously
+Project Structure
 
-🔍 **Semantic Search** - FAISS-powered vector similarity search for accurate retrieval
+Troubleshooting
 
-🤖 **Dual LLM Support** - Groq (ultra-fast) with OpenAI fallback
+Contributing
 
-📚 **Source Citations** - Every answer includes document references with page numbers
+Contact
 
-💬 **Chat History** - Persistent conversation tracking with download capability
+✨ Features
 
-🔄 **Smart Caching** - Persistent FAISS index for instant subsequent queries
+Core Capabilities
 
-### Advanced Features
+📁 Multi-PDF Upload --- Process one or multiple PDF documents.
 
-🎨 **Modern UI** - Glassmorphic design with gradient animations
+🔍 Semantic Search --- FAISS-powered vector similarity search.
 
-📊 **Real-time Logs** - Interactive log viewer with filtering
+🤖 Groq LLM Support --- Fast LLM inference using Groq.
 
-🔧 **Debug Mode** - View retrieved context chunks for transparency
+🔄 OpenAI Fallback --- Optional fallback LLM support.
 
-📥 **Export Options** - Download chat history as text files
+📚 Source Citations --- Display document sources used for
+answers.
 
-⚡ **OCR Fallback** - Automatic image-based PDF text extraction
+💬 Chat History --- Continue conversations with uploaded
+documents.
 
-🎯 **Adaptive Retrieval** - Configurable Top-K and chunk parameters
+⚡ Persistent FAISS Index --- Reuse the generated vector index
+for subsequent queries.
 
----
+Advanced Features
 
-## 🌐🎬 Live Demo
+🎨 Modern UI --- Dark glassmorphic Streamlit interface.
 
-🚀 Try it now:
+📊 Real-Time Logs --- View application processing information.
 
-- **Streamlit Profile:** YOUR_STREAMLIT_PROFILE_URL
-- **Project Demo:** YOUR_STREAMLIT_APP_URL
+🔧 Debug Context --- Inspect retrieved document context.
 
-Upload a PDF and ask questions in seconds!
+📥 Export Options --- Download chat history when available.
 
----
+⚡ OCR Fallback --- Supports image-based PDF text extraction
+when configured.
 
-## 🛠 Tech Stack
+🎯 Adaptive Retrieval --- Configurable chunk size and Top-K
+retrieval.
 
-| Layer | Technology | Purpose |
-|---|---|---|
-| Frontend | Streamlit 1.51+ | Interactive web interface |
-| LLM | Groq (Llama 3.3 70B) | Lightning-fast inference |
-| Fallback LLM | OpenAI GPT-3.5 | Backup for high availability |
-| Embeddings | HuggingFace Transformers | Sentence embeddings |
-| Vector Store | FAISS | High-performance similarity search |
-| Orchestration | LangChain 0.2.16 | RAG pipeline management |
-| PDF Parsing | PyMuPDF + Unstructured | Text extraction with OCR fallback |
-| Language | Python 3.9+ | Core application logic |
+🌐 Live Demo
 
-### Key Dependencies
+The project currently runs locally through Streamlit.
 
-```text
+Run locally
+
+streamlit run app.py
+
+The application will open at:
+
+http://localhost:8501
+
+A public demo URL is not included yet because the current application
+is running locally.
+
+🛠 Tech Stack
+
+Layer           Technology                          Purpose
+
+Frontend        Streamlit                           Interactive web interface
+LLM             Groq / Llama                        Fast AI inference
+Fallback LLM    OpenAI                              Optional fallback
+Embeddings      HuggingFace Sentence Transformers   Sentence embeddings
+Vector Store    FAISS                               Similarity search
+Orchestration   LangChain                           RAG pipeline management
+PDF Parsing     PyMuPDF + Unstructured              PDF text extraction
+Language        Python 3.9+                         Core application logic
+
+Key Dependencies
+
 langchain==0.2.16
 langchain-groq>=0.0.1
 faiss-cpu>=1.7.4
 sentence-transformers>=2.2.2
 streamlit>=1.28.0
 
-UI Overview
-Main Interface
+🖥️ UI Overview
 
-Components
+🏠 Main Page
 
-Header - Hithaish PDF RAG Chatbot branding
 
-Quick Guide - Visual workflow (Upload → Process → Query → Answer)
 
-File Uploader - Drag-and-drop PDF upload zone
+📄 PDF Upload
 
-Tabbed Navigation - Chat, Info, Logs, Notes
+
+
+💬 Chatbot Answer
+
+
+
+📚 Sources
+
+
+
+Main Interface Components
+
+Header --- Hithaish PDF RAG Chatbot branding.
+
+Quick Guide --- Visual workflow from PDF upload to answer
+generation.
+
+File Uploader --- Drag-and-drop PDF upload area.
+
+Tabbed Navigation --- Chat, Info & Tech Stack, Logs, and Notes.
+
+Configuration Sidebar --- Embedding model, chunk size, and Top-K
+settings.
+
+LLM Status --- Displays configured LLM availability.
 
 📁 PDF Upload
 
 The PDF upload section allows users to:
 
-Upload one or more PDF files
-Process PDF documents
-Extract text from documents
-Generate document embeddings
-Build the FAISS vector index
+Upload one or more PDF files.
+
+Process PDF documents.
+
+Extract text from documents.
+
+Split documents into chunks.
+
+Generate document embeddings.
+
+Build or update the FAISS vector index.
 
 💬 Chatbot Answer
 
-The Chat interface allows users to:
+The chat interface allows users to:
 
-Ask questions about uploaded PDFs
-Receive AI-generated answers
-Continue conversations
-Clear conversation history
-View retrieved document information
+Ask questions about uploaded PDFs.
+
+Receive AI-generated answers.
+
+Continue conversations.
+
+Clear conversation history.
+
+View retrieved document information.
+
+Inspect retrieved context when needed.
+
 Chat Features
-Text Area Input
-Enter Query Button
-Clear Conversation
-Message Bubbles
-Source Expanders
-Debug Context
 
+Text input
+
+Query submission
+
+Conversation history
+
+Clear conversation
+
+Message bubbles
+
+Source information
+
+Debug context
 
 📚 Source Citations
 
-The source section displays the document information used to generate the answer.
+The source section displays document information used to generate the
+answer.
 
 This helps users:
 
-Verify the generated answer
-Identify the relevant document
-Understand the retrieved context
-Improve transparency
+Verify the generated answer.
+
+Identify the relevant document.
+
+Understand the retrieved context.
+
+Improve transparency of the RAG response.
 
 🚀 Quick Start
+
 Prerequisites
+
 Python 3.9 or higher
-Groq API Key
-OR OpenAI API Key
-One-Command Setup (Windows)
-# Clone repository
+
+Groq API key
+
+Optional OpenAI API key
+
+Git
+
+Windows
+
 git clone https://github.com/hithaish-y/pdf-rag-chatbot.git
 cd pdf-rag-chatbot
 
-# Run setup script
+If the setup script is available:
+
 setup.bat
 
-One-Command Setup (Linux/Mac)
-# Clone repository
+Then run:
+
+streamlit run app.py
+
+Linux / macOS
+
 git clone https://github.com/hithaish-y/pdf-rag-chatbot.git
 cd pdf-rag-chatbot
-
-# Install and run
 pip install -r requirements.txt
-export GROQ_API_KEY="your_key_here"
 streamlit run app.py
 
 📦 Installation
+
 Step 1: Clone Repository
+
 git clone https://github.com/hithaish-y/pdf-rag-chatbot.git
 cd pdf-rag-chatbot
 
-Step 2: Create Virtual Environment
-Windows
-python -m venv venv
-venv\Scripts\activate
+Step 2: Create a Virtual Environment
 
-Linux/Mac
+Windows
+
+python -m venv venv
+venv\Scriptsctivate
+
+Linux / macOS
+
 python3 -m venv venv
 source venv/bin/activate
 
 Step 3: Install Dependencies
+
 pip install -r requirements.txt
 
 Step 4: Configure API Keys
-Option A: Environment Variables
-Windows PowerShell
-$env:GROQ_API_KEY="gsk_your_groq_api_key_here"
 
-Windows CMD
-set GROQ_API_KEY=gsk_your_groq_api_key_here
+Create or configure:
 
-Linux/Mac
-export GROQ_API_KEY="gsk_your_groq_api_key_here"
+.streamlit/secrets.toml
 
-Step 5: Run Application
+Example:
+
+GROQ_API_KEY = "your_groq_api_key_here"
+OPENAI_API_KEY = "your_openai_api_key_here"
+
+Do not commit real API keys to GitHub.
+
+Step 5: Run the Application
+
 streamlit run app.py
 
-The app will open at:
+The app will normally open at:
+
 http://localhost:8501
 
 ⚙️ Configuration
-Customizable Parameters
+
+The application uses configurable RAG parameters.
+
 Vector Store
+
 INDEX_DIR = "faiss_index_storage"
 
-Embeddings
+Embedding Model
+
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
 
+Retrieval Parameters
+
+CHUNK_SIZE = 800
+CHUNK_OVERLAP = 150
+TOP_K = 10
+
 Performance Tuning
-| Use Case        | CHUNK_SIZE | TOP_K | Model         |
-| --------------- | ---------: | ----: | ------------- |
-| Precise Answers |        500 |    15 | llama-3.3-70b |
-| Balanced        |        800 |    10 | llama-3.1-70b |
-| Speed Priority  |       1000 |     5 | llama-3.1-8b  |
+
+Use Case            CHUNK_SIZE   TOP_K Model
+
+Precise Answers            500      15 Llama 70B
+Balanced                   800      10 Llama 70B
+Speed Priority            1000       5 Llama 8B
 
 📖 Usage Guide
-Basic Workflow
-Upload PDFs
-Click the file uploader.
-Select one or more PDF files.
-Wait for processing to complete.
-Ask Questions
-Type your question in the text area.
-Click Enter Query.
-Wait for the AI response.
-Review Answers
-Read the AI-generated response.
-View the sources.
-Check retrieved context when needed.
-Manage Conversation
-Click Clear Conversation to reset the chat.
-Download chat history when required.
 
-┌─────────────┐
-│  PDF Upload │
-└──────┬──────┘
-       │
-       ▼
+1. Upload PDFs
+
+Open the Streamlit application.
+
+Use the PDF uploader.
+
+Select one or more PDF files.
+
+Wait for document processing and indexing.
+
+2. Ask Questions
+
+Open the Chat section.
+
+Enter a question about the uploaded documents.
+
+Submit the question.
+
+Wait for the AI-generated response.
+
+3. Review Answers
+
+Read the generated answer.
+
+Check the displayed sources.
+
+Inspect retrieved context when necessary.
+
+4. Manage Conversation
+
+Continue asking questions about the uploaded documents.
+
+Clear the conversation when required.
+
+Download chat history when the export option is available.
+
+🏗️ Architecture
+
 ┌─────────────────┐
-│ PyMuPDF Loader  │
-└──────┬──────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ Text Splitter        │
-│ Chunk: 800           │
-│ Overlap: 150         │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ HuggingFace Embedder │
-│ all-mpnet-base-v2    │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ FAISS Vector Store   │
-│ Persistent Index     │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ User Query           │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ Similarity Search    │
-│ Top-K Retrieval      │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ LLM (Groq/OpenAI)    │
-│ Context + Query      │
-└──────┬───────────────┘
-       │
-       ▼
-┌──────────────────────┐
-│ Answer + Citations   │
-└──────────────────────┘
+│   PDF Upload    │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  PDF Processing │
+│     PyMuPDF     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────────┐
+│    Text Splitter    │
+│ Chunk: 800          │
+│ Overlap: 150        │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│ HuggingFace Embedder│
+│ all-mpnet-base-v2   │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│   FAISS Vector      │
+│      Store           │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│     User Query      │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│  Similarity Search  │
+│    Top-K Retrieval  │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│    LLM Inference    │
+│    Groq / OpenAI    │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│ Answer + Sources    │
+└─────────────────────┘
+
+RAG Workflow
+
+PDF documents are uploaded.
+
+Text is extracted from the PDFs.
+
+Extracted text is divided into chunks.
+
+Chunks are converted into vector embeddings.
+
+Embeddings are stored in FAISS.
+
+A user question is processed for retrieval.
+
+Relevant chunks are retrieved using similarity search.
+
+Retrieved context is passed to the LLM.
+
+The LLM generates an answer.
+
+Relevant sources are displayed with the response.
+
+📂 Project Structure
 
 pdf-rag-chatbot/
 │
 ├── app.py
 ├── requirements.txt
-├── LICENSE
 ├── README.md
 ├── QUICKSTART.md
 ├── .gitignore
+├── Dockerfile
+├── run.bat
+├── setup.bat
 │
 ├── .streamlit/
 │   └── secrets.toml
@@ -316,42 +447,72 @@ pdf-rag-chatbot/
 │   ├── index.faiss
 │   └── index.pkl
 │
-└── app.log
+└── uploaded_pdfs/
 
-📄 License
+🐛 Troubleshooting
 
-This project is licensed under the MIT License.
+Application does not start
 
-See the LICENSE file for details.
+pip install -r requirements.txt
+streamlit run app.py
 
-MIT License Summary
+API key error
 
-✅ Commercial use
+Check that your API key is correctly configured in:
 
-✅ Modification
+.streamlit/secrets.toml
 
-✅ Distribution
+Never publish API keys in your repository.
 
-✅ Private use
+Answers are not found
 
-❌ Liability
+Try:
 
-❌ Warranty
+Re-uploading the PDF.
+
+Rebuilding the FAISS index.
+
+Asking a question directly related to the PDF.
+
+Checking the Logs or Debug Context section.
+
+Slow processing
+
+PDF processing and embedding generation can take time depending on the
+PDF size and hardware.
+
+🤝 Contributing
+
+Contributions and suggestions are welcome.
+
+Fork the repository.
+
+Create a new branch.
+
+Make your changes.
+
+Test the application.
+
+Commit your changes.
+
+Push the branch.
+
+Open a pull request.
 
 📞 Contact
+
 Hithaish Y
 
 Information Science Engineering Student
 
-GitHub
-
+GitHub:
 https://github.com/hithaish-y
 
-LinkedIn
-
+LinkedIn:
 https://www.linkedin.com/in/hithaish-y-9856562a1
 
-<div align="center">
+::: {align="center"}
+
 🚀 Hithaish PDF RAG Chatbot
 
 Built with ❤️ by Hithaish Y
@@ -359,5 +520,4 @@ Built with ❤️ by Hithaish Y
 Python • LangChain • FAISS • Groq • Streamlit • HuggingFace
 
 ⭐ Star this repository if you find it useful!
-
-</div> ```
+:::
