@@ -20,7 +20,9 @@ answers with relevant source information.
 
 📚 Source Citations
 
+## 🚀 Live Demo
 
+👉 [Try the PDF RAG Chatbot](https://pdf-rag-chatbot-jm5peqtccgduxyu9s9b74p.streamlit.app/)
 
 📌 About the Project
 
